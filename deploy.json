@@ -1,0 +1,57 @@
+{
+  "type": "delphi deploy config",
+  "version": 1,
+  "paths": {
+    "package": "../delphi/nowcast_datasetname"
+  },
+  "actions": [
+
+    "// nowcasting sources",
+    {
+      "type": "move",
+      "src": "src/",
+      "dst": "[[package]]/",
+      "match": "^(.+)(\\.py)$",
+      "add-header-comment": true
+    },
+    {
+      "type": "move",
+      "src": "src/experiments/",
+      "dst": "[[package]]/experiments/",
+      "match": "^(.+)(\\.py)$",
+      "add-header-comment": true
+    },
+    {
+      "type": "move",
+      "src": "src/fusion/",
+      "dst": "[[package]]/fusion/",
+      "match": "^(.+)(\\.py)$",
+      "add-header-comment": true
+    },
+    {
+      "type": "move",
+      "src": "src/sensors/",
+      "dst": "[[package]]/sensors/",
+      "match": "^(.+)(\\.py)$",
+      "add-header-comment": true
+    },
+    {
+      "type": "move",
+      "src": "src/targets/",
+      "dst": "[[package]]/targets/",
+      "match": "^(.+)(\\.py)$",
+      "add-header-comment": true
+    },
+    {
+      "type": "move",
+      "src": "src/util/",
+      "dst": "[[package]]/util/",
+      "match": "^(.+)(\\.py)$",
+      "add-header-comment": true
+    },
+
+    "// run unit and coverage tests",
+    {"type": "py3test"}
+
+  ]
+}
